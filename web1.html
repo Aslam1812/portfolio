@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mohamed Aslam | Web Developer</title>
+
+    <style>
+
+        /* =========================
+           GOOGLE FONT
+        ========================== */
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;700;800&display=swap');
+
+
+        /* =========================
+           GLOBAL
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #03030a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =========================
+           ANIME BACKGROUND
+        ========================== */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -5;
+
+            background:
+                radial-gradient(
+                    circle at 50% 20%,
+                    rgba(111, 0, 255, 0.25),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 10% 80%,
+                    rgba(0, 90, 255, 0.18),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 90% 60%,
+                    rgba(160, 0, 255, 0.16),
+                    transparent 25%
+                ),
+                linear-gradient(
+                    180deg,
+                    #05051a 0%,
+                    #07051a 40%,
+                    #020208 100%
+                );
+        }
+
+
+        /* =========================
+           STARS
+        ========================== */
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -4;
+
+            background-image:
+                radial-gradient(circle, #ffffff 1px, transparent 1px),
+                radial-gradient(circle, #8f7cff 1px, transparent 1px),
+                radial-gradient(circle, #ffffff 1px, transparent 1px);
+
+            background-size:
+                90px 90px,
+                130px 130px,
+                180px 180px;
+
+            background-position:
+                0 0,
+                40px 60px,
+                80px 20px;
+
+            opacity: 0.35;
+            animation: starsMove 25s linear infinite;
+        }
+
+        @keyframes starsMove {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(90px);
+            }
+        }
+
+
+        /* =========================
+           CURSED ENERGY ORBS
+        ========================== */
+
+        .energy {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(4px);
+            z-index: -3;
+            pointer-events: none;
+        }
+
+        .energy.one {
+            width: 250px;
+            height: 250px;
+            top: 15%;
+            left: -100px;
+
+            background: radial-gradient(
+                circle,
+                rgba(124, 58, 237, 0.5),
+                transparent 70%
+            );
+
+            animation: floatOne 8s ease-in-out infinite;
+        }
+
+        .energy.two {
+            width: 300px;
+            height: 300px;
+            right: -120px;
+            top: 45%;
+
+            background: radial-gradient(
+                circle,
+                rgba(37, 99, 235, 0.35),
+                transparent 70%
+            );
+
+            animation: floatTwo 10s ease-in-out infinite;
+        }
+
+        @keyframes floatOne {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+
+            50% {
+                transform: translateY(100px) scale(1.2);
+            }
+        }
+
+        @keyframes floatTwo {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-120px);
+            }
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: rgba(3, 3, 10, 0.72);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(139, 92, 246, 0.15);
+        }
+
+        nav {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+
+            height: 75px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 25px;
+            font-weight: 800;
+
+            color: #fff;
+
+            text-shadow:
+                0 0 10px #7c3aed,
+                0 0 25px #7c3aed;
+        }
+
+        .logo span {
+            color: #8b5cf6;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            color: #aaa;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #a78bfa;
+
+            text-shadow:
+                0 0 10px #8b5cf6;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            width: 90%;
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-content {
+            padding-top: 50px;
+        }
+
+        .badge {
+            display: inline-block;
+
+            padding: 9px 18px;
+
+            border: 1px solid #7c3aed;
+            border-radius: 30px;
+
+            color: #c4b5fd;
+
+            font-size: 13px;
+
+            background: rgba(124, 58, 237, 0.08);
+
+            box-shadow:
+                0 0 15px rgba(124, 58, 237, 0.3);
+
+            margin-bottom: 25px;
+        }
+
+        .badge::before {
+            content: "●";
+            color: #8b5cf6;
+            margin-right: 8px;
+
+            text-shadow:
+                0 0 10px #8b5cf6;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+
+            font-size: clamp(42px, 6vw, 75px);
+
+            line-height: 1.05;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #8b5cf6,
+                #60a5fa
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            text-shadow:
+                0 0 30px rgba(124, 58, 237, 0.25);
+        }
+
+        .hero p {
+            max-width: 600px;
+
+            color: #a1a1aa;
+
+            line-height: 1.8;
+
+            margin-bottom: 30px;
+
+            font-size: 16px;
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================== */
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 24px;
+
+            border-radius: 8px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+
+            border: 1px solid #6d28d9;
+        }
+
+        .btn-primary {
+            background: linear-gradient(
+                135deg,
+                #7c3aed,
+                #4f46e5
+            );
+
+            box-shadow:
+                0 0 20px rgba(124, 58, 237, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 0 35px rgba(124, 58, 237, 0.7);
+        }
+
+        .btn-outline {
+            background: rgba(255,255,255,0.03);
+            color: #ddd;
+        }
+
+        .btn-outline:hover {
+            background: rgba(124,58,237,0.15);
+
+            box-shadow:
+                0 0 20px rgba(124,58,237,0.3);
+        }
+
+
+        /* =========================
+           ANIME CHARACTER STYLE
+        ========================== */
+
+        .anime-scene {
+            height: 520px;
+
+            position: relative;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .moon {
+            position: absolute;
+
+            width: 280px;
+            height: 280px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle at 35% 30%,
+                    #ffffff,
+                    #c4b5fd 35%,
+                    #7c3aed 65%,
+                    transparent 70%
+                );
+
+            filter:
+                drop-shadow(0 0 25px #8b5cf6)
+                drop-shadow(0 0 60px #4f46e5);
+
+            opacity: 0.85;
+        }
+
+
+        /* Character silhouette */
+
+        .character {
+            position: relative;
+
+            width: 270px;
+            height: 390px;
+
+            z-index: 2;
+        }
+
+        .head {
+            position: absolute;
+
+            width: 110px;
+            height: 120px;
+
+            top: 35px;
+            left: 80px;
+
+            border-radius: 48% 48% 45% 45%;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #17172b,
+                    #05050b
+                );
+
+            border: 2px solid #7c3aed;
+
+            box-shadow:
+                0 0 20px rgba(124,58,237,0.5);
+        }
+
+        .hair {
+            position: absolute;
+
+            width: 125px;
+            height: 80px;
+
+            top: 20px;
+            left: 73px;
+
+            background: #050509;
+
+            border-radius: 60% 40% 20% 30%;
+
+            transform: rotate(-5deg);
+
+            border-top: 3px solid #8b5cf6;
+
+            box-shadow:
+                0 -5px 20px rgba(139,92,246,0.35);
+        }
+
+        .body {
+            position: absolute;
+
+            width: 180px;
+            height: 230px;
+
+            top: 145px;
+            left: 45px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #11111d,
+                    #05050a
+                );
+
+            clip-path: polygon(
+                20% 0,
+                80% 0,
+                100% 100%,
+                0 100%
+            );
+
+            border: 1px solid #312e81;
+
+            box-shadow:
+                0 0 25px rgba(76,29,149,0.5);
+        }
+
+        .collar {
+            position: absolute;
+
+            width: 70px;
+            height: 110px;
+
+            top: 145px;
+            left: 100px;
+
+            background: #020205;
+
+            clip-path: polygon(
+                0 0,
+                100% 0,
+                75% 100%,
+                25% 100%
+            );
+        }
+
+        .arm {
+            position: absolute;
+
+            width: 65px;
+            height: 190px;
+
+            background: #090912;
+
+            border: 1px solid #312e81;
+
+            top: 160px;
+        }
+
+        .arm.left {
+            left: 20px;
+            transform: rotate(15deg);
+        }
+
+        .arm.right {
+            right: 20px;
+            transform: rotate(-15deg);
+        }
+
+
+        /* =========================
+           CURSED ENERGY
+        ========================== */
+
+        .curse {
+            position: absolute;
+
+            width: 250px;
+            height: 250px;
+
+            border-radius: 50%;
+
+            border: 2px solid #7c3aed;
+
+            box-shadow:
+                0 0 20px #7c3aed,
+                0 0 50px #4f46e5,
+                inset 0 0 30px #7c3aed;
+
+            animation: curseSpin 8s linear infinite;
+        }
+
+        .curse::before,
+        .curse::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 25px;
+
+            border-radius: 50%;
+
+            border: 2px dashed #60a5fa;
+        }
+
+        .curse::after {
+            inset: 50px;
+
+            border-color: #c084fc;
+
+            transform: rotate(45deg);
+        }
+
+        @keyframes curseSpin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        /* =========================
+           SECTION
+        ========================== */
+
+        section {
+            width: 90%;
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 100px 0;
+        }
+
+        .section-title {
+            margin-bottom: 45px;
+        }
+
+        .section-title small {
+            color: #8b5cf6;
+
+            font-family: 'Orbitron', sans-serif;
+
+            letter-spacing: 3px;
+
+            font-size: 12px;
+        }
+
+        .section-title h2 {
+            font-size: 35px;
+
+            margin-top: 10px;
+        }
+
+        .section-title p {
+            color: #888;
+
+            margin-top: 10px;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================== */
+
+        .about {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 50px;
+
+            align-items: center;
+        }
+
+        .about-text p {
+            color: #aaa;
+
+            line-height: 1.9;
+
+            margin-bottom: 18px;
+        }
+
+        .about-card {
+            padding: 35px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(124,58,237,0.12),
+                    rgba(0,0,0,0.5)
+                );
+
+            border: 1px solid rgba(139,92,246,0.3);
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 0 40px rgba(76,29,149,0.12);
+        }
+
+        .about-card h3 {
+            margin-bottom: 20px;
+
+            color: #c4b5fd;
+        }
+
+        .info {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 15px;
+        }
+
+        .info div {
+            padding: 18px;
+
+            border-radius: 10px;
+
+            background: rgba(255,255,255,0.025);
+
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .info span {
+            display: block;
+
+            color: #777;
+
+            font-size: 12px;
+
+            margin-bottom: 5px;
+        }
+
+
+        /* =========================
+           SKILLS
+        ========================== */
+
+        .skills {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .skill-card {
+            padding: 30px;
+
+            background: rgba(10,10,25,0.65);
+
+            border: 1px solid rgba(124,58,237,0.3);
+
+            border-radius: 15px;
+
+            transition: 0.4s;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 100px;
+            height: 100px;
+
+            top: -50px;
+            right: -50px;
+
+            border-radius: 50%;
+
+            background: #7c3aed;
+
+            filter: blur(50px);
+
+            opacity: 0.25;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+
+            border-color: #8b5cf6;
+
+            box-shadow:
+                0 0 30px rgba(124,58,237,0.3);
+        }
+
+        .skill-icon {
+            font-size: 35px;
+
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .skill-card p {
+            color: #777;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           PROJECTS
+        ========================== */
+
+        .projects {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .project {
+            position: relative;
+
+            padding: 30px;
+
+            min-height: 280px;
+
+            border-radius: 15px;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #11112b,
+                    #05050c
+                );
+
+            border: 1px solid rgba(124,58,237,0.35);
+
+            transition: 0.4s;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+
+            box-shadow:
+                0 0 35px rgba(124,58,237,0.25);
+        }
+
+        .project::before {
+            content: "呪";
+
+            position: absolute;
+
+            right: -15px;
+            top: -40px;
+
+            font-size: 170px;
+
+            font-family: serif;
+
+            color: rgba(124,58,237,0.08);
+        }
+
+        .project-number {
+            color: #8b5cf6;
+
+            font-family: 'Orbitron', sans-serif;
+
+            font-size: 12px;
+        }
+
+        .project h3 {
+            margin-top: 70px;
+
+            margin-bottom: 12px;
+
+            font-size: 21px;
+        }
+
+        .project p {
+            color: #888;
+
+            line-height: 1.6;
+
+            font-size: 14px;
+        }
+
+        .tags {
+            display: flex;
+
+            gap: 8px;
+
+            flex-wrap: wrap;
+
+            margin-top: 20px;
+        }
+
+        .tag {
+            font-size: 11px;
+
+            padding: 6px 10px;
+
+            border-radius: 20px;
+
+            background: rgba(124,58,237,0.12);
+
+            color: #c4b5fd;
+
+            border: 1px solid rgba(124,58,237,0.25);
+        }
+
+
+        /* =========================
+           EXPERIENCE
+        ========================== */
+
+        .timeline {
+            border-left: 2px solid #312e81;
+
+            padding-left: 30px;
+        }
+
+        .timeline-item {
+            position: relative;
+
+            margin-bottom: 40px;
+        }
+
+        .timeline-item::before {
+            content: "";
+
+            position: absolute;
+
+            left: -39px;
+            top: 5px;
+
+            width: 15px;
+            height: 15px;
+
+            border-radius: 50%;
+
+            background: #7c3aed;
+
+            box-shadow:
+                0 0 15px #7c3aed;
+        }
+
+        .timeline-item span {
+            color: #8b5cf6;
+
+            font-size: 13px;
+        }
+
+        .timeline-item h3 {
+            margin: 8px 0;
+        }
+
+        .timeline-item p {
+            color: #777;
+
+            line-height: 1.7;
+
+            max-width: 700px;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================== */
+
+        .contact {
+            text-align: center;
+
+            padding: 100px 30px;
+
+            border: 1px solid rgba(124,58,237,0.3);
+
+            border-radius: 20px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(124,58,237,0.12),
+                    transparent 60%
+                );
+        }
+
+        .contact h2 {
+            font-family: 'Orbitron', sans-serif;
+
+            font-size: 40px;
+
+            margin-bottom: 15px;
+        }
+
+        .contact p {
+            color: #888;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            border-top: 1px solid rgba(124,58,237,0.2);
+
+            padding: 30px;
+
+            text-align: center;
+
+            color: #666;
+
+            font-size: 13px;
+        }
+
+        footer span {
+            color: #8b5cf6;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 900px) {
+
+            .hero-container,
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .anime-scene {
+                height: 400px;
+
+                order: -1;
+            }
+
+            .skills {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .projects {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            nav {
+                height: 65px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 80px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .anime-scene {
+                height: 350px;
+            }
+
+            .moon {
+                width: 190px;
+                height: 190px;
+            }
+
+            .character {
+                transform: scale(0.75);
+            }
+
+            .skills,
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .info {
+                grid-template-columns: 1fr;
+            }
+
+            .contact h2 {
+                font-size: 28px;
+            }
+
+            section {
+                padding: 70px 0;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- Background Energy -->
+    <div class="energy one"></div>
+    <div class="energy two"></div>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <header>
+
+        <nav>
+
+            <a href="#" class="logo">
+                MA<span>.</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-container">
+
+            <div class="hero-content">
+
+                <div class="badge">
+                    Available for opportunities
+                </div>
+
+                <h1>
+                    Hi, I'm<br>
+                    <span>Mohamed Aslam.</span>
+                </h1>
+
+                <h2>
+                    I build digital experiences.
+                </h2>
+
+                <p>
+                    I'm a passionate web developer focused on creating
+                    modern, responsive and user-friendly websites that
+                    combine clean design with powerful functionality.
+                </p>
+
+                <div class="buttons">
+
+                    <a href="#projects"
+                       class="btn btn-primary">
+                        View My Work →
+                    </a>
+
+                    <a href="#contact"
+                       class="btn btn-outline">
+                        Let's Talk
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Anime Inspired Visual -->
+
+            <div class="anime-scene">
+
+                <div class="moon"></div>
+
+                <div class="curse"></div>
+
+                <div class="character">
+
+                    <div class="hair"></div>
+
+                    <div class="head"></div>
+
+                    <div class="body"></div>
+
+                    <div class="collar"></div>
+
+                    <div class="arm left"></div>
+
+                    <div class="arm right"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section id="about">
+
+        <div class="section-title">
+
+            <small>ABOUT ME</small>
+
+            <h2>Turning ideas into reality.</h2>
+
+            <p>
+                A little about me and what I do.
+            </p>
+
+        </div>
+
+
+        <div class="about">
+
+            <div class="about-text">
+
+                <p>
+                    I'm Mohamed Aslam, a web developer who enjoys
+                    transforming ideas into clean, functional and
+                    visually appealing digital products.
+                </p>
+
+                <p>
+                    I focus on writing maintainable code, designing
+                    responsive interfaces and creating experiences
+                    that work beautifully across devices.
+                </p>
+
+            </div>
+
+
+            <div class="about-card">
+
+                <h3>Profile Information</h3>
+
+                <div class="info">
+
+                    <div>
+                        <span>Name</span>
+                        Mohamed Aslam
+                    </div>
+
+                    <div>
+                        <span>Role</span>
+                        Web Developer
+                    </div>
+
+                    <div>
+                        <span>Location</span>
+                        India
+                    </div>
+
+                    <div>
+                        <span>Email</span>
+                        your@email.com
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SKILLS
+    ========================== -->
+
+    <section id="skills">
+
+        <div class="section-title">
+
+            <small>SKILLS</small>
+
+            <h2>What I work with.</h2>
+
+            <p>
+                Technologies and tools I use to create modern websites.
+            </p>
+
+        </div>
+
+
+        <div class="skills">
+
+            <div class="skill-card">
+
+                <div class="skill-icon">🔥</div>
+
+                <h3>HTML5</h3>
+
+                <p>
+                    Semantic and accessible web structure.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">💠</div>
+
+                <h3>CSS3</h3>
+
+                <p>
+                    Responsive layouts and modern styling.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">⚡</div>
+
+                <h3>JavaScript</h3>
+
+                <p>
+                    Interactive and dynamic web experiences.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">🎨</div>
+
+                <h3>UI Design</h3>
+
+                <p>
+                    Clean and user-focused interface design.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PROJECTS
+    ========================== -->
+
+    <section id="projects">
+
+        <div class="section-title">
+
+            <small>PORTFOLIO</small>
+
+            <h2>Selected projects.</h2>
+
+            <p>
+                Some examples of projects I've worked on.
+            </p>
+
+        </div>
+
+
+        <div class="projects">
+
+
+            <div class="project">
+
+                <div class="project-number">
+                    PROJECT 01
+                </div>
+
+                <h3>Business Website</h3>
+
+                <p>
+                    A modern responsive website designed
+                    for a professional business.
+                </p>
+
+                <div class="tags">
+
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="project">
+
+                <div class="project-number">
+                    PROJECT 02
+                </div>
+
+                <h3>E-Commerce Website</h3>
+
+                <p>
+                    A clean online shopping experience
+                    with responsive product layouts.
+                </p>
+
+                <div class="tags">
+
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="project">
+
+                <div class="project-number">
+                    PROJECT 03
+                </div>
+
+                <h3>Dashboard UI</h3>
+
+                <p>
+                    A professional dashboard interface
+                    designed for managing business data.
+                </p>
+
+                <div class="tags">
+
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">UI/UX</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         EXPERIENCE
+    ========================== -->
+
+    <section id="experience">
+
+        <div class="section-title">
+
+            <small>EXPERIENCE</small>
+
+            <h2>My journey.</h2>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+            <div class="timeline-item">
+
+                <span>2025 — Present</span>
+
+                <h3>Web Developer</h3>
+
+                <p>
+                    Building responsive websites and web applications
+                    while focusing on performance, usability and clean design.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <span>2024 — 2025</span>
+
+                <h3>Frontend Developer</h3>
+
+                <p>
+                    Developed multiple web projects while improving
+                    skills in HTML, CSS, JavaScript and modern frontend development.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section id="contact">
+
+        <div class="contact">
+
+            <div class="section-title">
+
+                <small>CONTACT</small>
+
+                <h2>Let's build something great.</h2>
+
+            </div>
+
+            <p>
+                Have a project, idea or opportunity?
+                I'd love to hear from you.
+            </p>
+
+
+            <div class="buttons"
+                 style="justify-content:center;">
+
+                <a href="mailto:your@email.com"
+                   class="btn btn-primary">
+                    Email Me
+                </a>
+
+                <a href="#"
+                   class="btn btn-outline">
+                    LinkedIn
+                </a>
+
+                <a href="#"
+                   class="btn btn-outline">
+                    GitHub
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        © 2026
+        <span>Mohamed Aslam</span>.
+        All rights reserved.
+
+    </footer>
+
+
+</body>
+</html>
